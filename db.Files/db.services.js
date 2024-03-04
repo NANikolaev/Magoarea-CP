@@ -5,7 +5,6 @@ let getOrders = async (query) => {
     try {
         let pool = await sql.connect(config);
         let orders = await pool.request().query(`SELECT Name, LastName FROM RM_Workers WHERE WorkerID LIKE '${query}%'`);
-        //  let orders= await pool.request().query(`SELECT Name, LastName FROM RM_Workers`);
         return orders.recordset
     }
     catch (err) { console.log(err) }
