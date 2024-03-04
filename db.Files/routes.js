@@ -5,10 +5,9 @@ router.route('/orders')
 
 .post((req,res)=>{
    let query=req.body.query;
-   res.json(`${query} yess`)
-  // services.getOrders(query)
-  // .then(orders=>res.json(orders))
-  // .catch(err=>console.log(err))
+   services.getOrders(query)
+   .then(orders=>res.json(orders))
+   .catch(err=>console.log(err))
 });
 
 router.route('/order/:id')

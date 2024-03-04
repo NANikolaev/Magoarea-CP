@@ -15,6 +15,7 @@ export const ListItem=styled.li`
  flex-wrap: wrap;
  flex-direction: row;
  align-items: center;
+ margin-bottom: 10px;
  gap: 20px;
  line-height: 2.2;
  font-size: 18px;
@@ -25,11 +26,15 @@ export const ListItem=styled.li`
  background-color: ${({theme})=>theme.colors.back};
  border: 2px solid white;
  box-shadow: ${({theme})=>theme.shadows.back};
-
 `
 export const Image=styled.img`
 width: 30px;
 `
 export const Span=styled.span`
 font-weight: 700;
+`
+export const Heading=styled.h2`
+text-align: center;
+color: #ff7373;
+font-weight: 800;
 `
