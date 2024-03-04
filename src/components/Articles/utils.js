@@ -1,6 +1,6 @@
 import { url } from '../../constants';
 
-export const getOrders = (query) => {
+export const getArticles = (query) => {
 
     return fetch(`${url}/orders`, {
         method: 'POST',

@@ -12,7 +12,7 @@ let Search = () => {
         e.preventDefault()
          let query=e.currentTarget.query.value
          let params={query:query}
-         navigate({pathname:'/Orders',search:`${createSearchParams(params)}`})
+         navigate({pathname:'/Articles',search:`${createSearchParams(params)}`})
         
     }
 

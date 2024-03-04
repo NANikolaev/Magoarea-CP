@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Search from "./components/Search/Search";
-import Orders from "./components/Orders/Orders";
+import Articles from "./components/Articles/Articles";
 import Form from './components/Form/Form';
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
     <>
       <Search />
       <Routes>
-        <Route path='/Orders' element={<Orders />} />
-        <Route path='/Order/:id' element={<Form />} />
+        <Route path='/Articles' element={<Articles />} />
+        <Route path='/Article/:id' element={<Form />} />
       </Routes>
     </>
   );
