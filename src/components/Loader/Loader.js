@@ -1,6 +1,6 @@
 import { ThreeCircles } from 'react-loader-spinner';
 import { Container } from './elements';
-const Loader = (toggle) => {
+const Loader = () => {
 
     return (
         <Container>
