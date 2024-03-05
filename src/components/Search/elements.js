@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import {styled,keyframes} from "styled-components";
+
+let opacity = keyframes`
+ 0% {opacity:0;}
+ 100% {opacity:1;}
+`
 
 export const Form=styled.form`
  display: flex;
@@ -7,6 +12,7 @@ export const Form=styled.form`
  align-items: center;
  margin-bottom: 40px;
  gap: 10px;
+ animation: ${opacity} 3s;
 `
 export const Input = styled.input`
 width: 100%;
