@@ -1,7 +1,19 @@
 let config = require('./sql-db');
 const sql = require('mssql');
 
+let getUser= async (userId)=>{
+
+    try {
+        let pool = await sql.connect(config);
+        let orders = await pool.request().query(`SELECT WorkerID, Name, LastName FROM RM_Workers WHERE WorkerID = ${userId}`);
+        return orders.recordset
+    }
+    catch (err) { console.log(err) }
+
+}
+
 let getOrders = async (query) => {
+
     try {
         let pool = await sql.connect(config);
         let orders = await pool.request().query(`SELECT Name, LastName FROM RM_Workers WHERE WorkerID LIKE '${query}%'`);
@@ -21,6 +33,7 @@ let getOrder = async (query) => {
 };
 
 module.exports = {
+    getUser,
     getOrders,
     getOrder,
 };

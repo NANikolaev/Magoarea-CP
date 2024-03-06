@@ -36,5 +36,6 @@ font-weight: 700;
 export const Heading=styled.h2`
 text-align: center;
 color: #ff7373;
+padding-right: 40px;
 font-weight: 800;
 `

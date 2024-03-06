@@ -8,7 +8,6 @@ export const getArticles = (query) => {
         body: JSON.stringify({query:query})
     })
      .then(res =>{return res.json()})
-     
 
 };
 

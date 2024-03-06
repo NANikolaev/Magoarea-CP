@@ -36,9 +36,3 @@ width: 130px;
 height: 130px;
 padding-bottom: 10px;
 `
-export const Container=styled.div`
-position: fixed;
-left: 50%;
-top: 30%;
-transform: translate(-50%, 0);
-`

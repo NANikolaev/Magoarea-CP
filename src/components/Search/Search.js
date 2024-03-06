@@ -13,14 +13,12 @@ let Search = () => {
          let query=e.currentTarget.query.value
          let params={query:query}
          navigate({pathname:'/Articles',search:`${createSearchParams(params)}`})
-        
     }
 
 
     return (
         <Form onSubmit={(e)=>onSubmit(e)}>
-            <Input type="search" name="query" required pattern="[0-9]"></Input>
-            
+            <Input type="search" name="query" required pattern="[0-9]?\d+"></Input>           
             <Button type="submit"><Image src={searchIcon}/></Button>
         </Form>
     )

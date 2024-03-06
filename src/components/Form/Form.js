@@ -9,6 +9,7 @@ import { Section,HeadingBox,Heading,Icon,Span,Image,InfoContainer,Article,Paragr
 const Form = () => {
     let [show,setShow]=useState(false)
     let id = useParams().id
+
     return (
       <Section>
         <HeadingBox>
