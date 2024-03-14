@@ -18,7 +18,7 @@ let Search = () => {
 
     return (
         <Form onSubmit={(e)=>onSubmit(e)}>
-            <Input type="search" name="query" required pattern="[0-9]?\d+"></Input>           
+            <Input type="search" name="query" required ></Input>           
             <Button type="submit"><Image src={searchIcon}/></Button>
         </Form>
     )

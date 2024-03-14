@@ -28,9 +28,9 @@ const Articles = () => {
                 : <Section key={query}>
                     {articles.length > 0
                         ? <List>{articles.map((o, i) =>
-                            <Link to={`/Article/${query}`} key={i}>
+                            <Link to={`/Article/${o.MONo}`} key={i}>
                                 <ListItem>
-                                    <Image src={fileIcon} />АРТИКУЛ <Span>№</Span><Span>{i}</Span>
+                                    <Image src={fileIcon} />ПОРЪЧКА <Span>№</Span><Span>{o.MONo}</Span>
                                 </ListItem>
                             </Link>)}
                         </List>

@@ -4,8 +4,8 @@ let services = require('./db.services');
 router.route('/user')
 
   .post((req, res) => {
-    let userId = req.body.user
-    services.getUser(userId)
+    let regNum = req.body.user
+    services.getUser(regNum)
       .then(user => res.json(user))
       .catch(err => console.log(err))
   })
@@ -20,16 +20,16 @@ router.route('/orders')
       .catch(err => console.log(err))
   });
 
-router.route('/order/:id')
+router.route('/order')
 
-  .get((req, res) => {
-    let id = req.params.id
+  .post((req, res) => {
+    let id = req.body.requestedOrder
     services.getOrder(id)
       .then(order => res.json(order))
       .catch(err => console.log(err))
   })
 
-  .post((req, res) => {
+  .put((req, res) => {
 
 
   })

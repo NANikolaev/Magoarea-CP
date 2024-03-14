@@ -5,12 +5,13 @@ import Home from './components/Home/Home';
 import User from './components/User/User';
 import Search from "./components/Search/Search";
 import Articles from "./components/Articles/Articles";
-import Form from './components/Form/Form';
+import Article from './components/Article/Article';
 
 function App() {
 
   let [pass, setPass] = useState(false);
   let [user ,setUser] =useState('');
+
 
   return (
 
@@ -21,7 +22,7 @@ function App() {
            <Search/>
           <Routes>
             <Route path='/Articles' element={<Articles />} />
-            <Route path='/Article/:id' element={<Form />} />         
+            <Route path='/Article/:year/:id' element={<Article  setPass={setPass}/>} />         
           </Routes>
           </>
         : <Home setPass={setPass} setUser={setUser} />

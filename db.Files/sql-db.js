@@ -2,7 +2,7 @@ const config={
    user:"sa",
    password:"Nn.M@g0.2025",
    server:"localhost",
-   database:'USA',
+   database:'MBM',
    options:{
    trustServerCertificate:true,
    trustedConnection:false,
