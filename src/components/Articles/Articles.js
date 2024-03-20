@@ -18,13 +18,14 @@ const Articles = () => {
             .then(data => {
                 setArticles(data)
                 setLoading(false)
-            });
+            })
+            .catch(err => console.log(err.message))
     }, [query]);
 
     return (
         <>
-            {isLoading 
-                ? <Loader/>
+            {isLoading
+                ? <Loader />
                 : <Section key={query}>
                     {articles.length > 0
                         ? <List>{articles.map((o, i) =>

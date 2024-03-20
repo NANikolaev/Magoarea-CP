@@ -25,13 +25,14 @@ router.route('/order')
   .post((req, res) => {
     let id = req.body.requestedOrder
     services.getOrder(id)
-      .then(order => res.json(order))
+      .then(order =>res.json(order))
       .catch(err => console.log(err))
   })
 
   .put((req, res) => {
-
-
+    let order=req.body.order
+    services.putOrder(order )
+    res.json(true)
   })
 
 module.exports = (server) => {

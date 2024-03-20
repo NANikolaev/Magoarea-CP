@@ -134,6 +134,8 @@ export const InputCheck=styled.input`
 export const InputNum=styled.input`
 width: 60px;
 height: 14.5px;
+font-size: 12px;
+font-weight: 600;
 padding-left: 5px;
 outline: none;
 `

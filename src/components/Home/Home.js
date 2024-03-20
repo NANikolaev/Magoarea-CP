@@ -33,7 +33,7 @@ const Home = ({ setPass, setUser }) => {
       <Logo />
       <Heading>НОМЕР НА СЛУЖИТЕЛ </Heading>
       <Form onSubmit={(e) => onSubmit(e)}>
-        <Input type="search" name="id" required pattern="[0-9]?\d+" style={{ borderColor: `${error}` }} autoComplete="off"></Input>
+        <Input type="search" name="id" required  style={{ borderColor: `${error}` }} autoComplete="off"></Input>
         <Button type="submit"><Image src={logon} /></Button>
       </Form>
     </Container>
