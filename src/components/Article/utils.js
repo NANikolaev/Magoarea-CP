@@ -9,14 +9,14 @@ export const getArticle = (requestedOrder) => {
     })
       .then(res =>res.json())
       .then(res=>{
-        if(res.form.length == 0){throw new Error ('Invalid Request')}
+        if(res.form.length === 0){throw new Error ('Няма Контролен план!')}
+        if(res.header.IsImported === '1'){throw new Error ('Контролният план е измерен!')} 
         return res
       })
 
 };
 
 export const putArticle=(order)=>{
-
      
     return fetch(`${url}/order`, {
         method: 'PUT',
@@ -25,8 +25,8 @@ export const putArticle=(order)=>{
     })
      .then(res =>res.json())
      .then(res=>{
-         if(res){return res}
-         else{throw new Error ('Invalid Request')}
+         if(res === true){return res}
+         else{throw new Error (res)}
      })
 
 }

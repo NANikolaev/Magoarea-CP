@@ -17,7 +17,7 @@ function App() {
     <>
       {pass
         ? <>
-          <User user={user} />
+          <User user={user} setPass={setPass} setUser={setUser} />
            <Search/>
           <Routes>
             <Route path='/Articles' element={<Articles />} />

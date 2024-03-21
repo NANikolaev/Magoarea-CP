@@ -10,9 +10,17 @@ export const Form=styled.form`
  flex-wrap: wrap;
  justify-content: center;
  align-items: center;
- margin:40px 0;
+ margin-top: 10px;
+ margin-bottom:40px;
  gap: 10px;
  animation: ${opacity} 3s;
+`
+export const Heading=styled.h3`
+ color: ${({theme})=>theme.colors.text};
+ width: 100%;
+ max-width: 1100px;
+ padding-right: 40px;
+ text-align: center;
 `
 export const Input = styled.input`
 width: 100%;

@@ -49,27 +49,40 @@ let checkNum =(num)=>{
 
 let putOrder = async (order) =>{
     let header=order.header
-    delete header.MONo
     let form=order.form
+    delete header.MONo
+    let CPId=0;
     try{
         let pool = await sql.connect(config);
         let lastIndex=await pool.request().query(`SELECT MAX(CPId) [CPId] FROM MGR_ControlPlan`);
         let lastNum=await pool.request().query(StubBookNum);
-        let CPId =++lastIndex.recordset[0].CPId
         let currentDocNum=lastNum.recordset[0].LastDocNo
         let CPNo=checkNum(currentDocNum)
-        header.CPId=CPId
-        header.CPNo=CPNo
+        CPId =++lastIndex.recordset[0].CPId
+        header.CPId=CPId;
+        header.CPNo=CPNo;
+        header.IsImported='1';
         let keys=Array.from(Object.keys(header))
         let values=Array.from(Object.values(header))
-        console.log(values)
         let insertHeader= await pool.request().query(`INSERT INTO MGR_ControlPlan (${keys}) VALUES
-        (${values[0]}, '${values[1]}', '${values[2]}', '${values[3]}', ${values[4]}, ${values[5]}, '${values[6]}')`)
-        console.log(insertHeader)
+        (${values[0]}, '${values[1]}', N'${values[2]}', '${values[3]}', ${values[4]}, ${values[5]}, '${values[6]}', '${values[7]}')`)
+        
     }
-    catch(err){console.log(err.message)}
+    catch(err){return err.message}
 
-  
+    try{
+        let pool = await sql.connect(config);
+        let keys=Array.from(Object.keys(form[0]).slice(3,))
+        keys.push('CPId','IsImported')
+        form=form.map(x=>`(${x.Line},N'${x.Parameter.replace('\'','')}',N'${x.AnalysisMethod.replace('\'','')}',N'${x.UoM.replace('\'','')}',${x.ExpectedNumResult},'${x.LowerBound.replace('\'','')}','${x.UpperBound.replace('\'','')}','${x.ResultBool}',${x.ResultMeasurement},N'${x.Notes.replace('\'','')}',${CPId},'1')`)
+        form.forEach( async (x) => {
+              let result=  await pool.request().query(`INSERT INTO MGR_ControlPlanDetails (${keys}) VALUES ${x} `)
+        });
+        return true
+       
+    }
+    catch (err){return err.message}
+
 };
 
 module.exports = {

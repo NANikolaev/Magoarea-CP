@@ -31,8 +31,12 @@ router.route('/order')
 
   .put((req, res) => {
     let order=req.body.order
-    services.putOrder(order )
-    res.json(true)
+    services.putOrder(order)
+    .then(isFine=>{
+      if(isFine != true){res.send(isFine)}
+      else{res.send(true)}
+    })
+   
   })
 
 module.exports = (server) => {

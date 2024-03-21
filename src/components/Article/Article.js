@@ -30,18 +30,23 @@ const Article = ({ setPass, setUser, user }) => {
         setLoading(false)
       })
       .catch(err => {
+        if (err.message == 'Failed to fetch') { err.message = 'Няма връзка със сървъра!' }
         setLoading(false)
-        setError(true)
+        setError(err.message.toUpperCase())
       })
 
   }, [])
 
   function onSubmit(e) {
     e.preventDefault()
-   // setLoading(true)
+    setLoading(true)
     putArticle(order)
-    //  .then(res => { setPass(false); setUser(''); navigate('/', { replace: true }); })
-      .catch(err => console.log(err.message))
+      .then(res => { setPass(false); setUser(''); navigate('/', { replace: true }); })
+      .catch(err => {
+        if (err.message == 'Failed to fetch') { err.message = 'Няма връзка със сървъра!' }
+        setLoading(false)
+        setError(err.message.toUpperCase())
+      })
   }
 
 
@@ -51,7 +56,7 @@ const Article = ({ setPass, setUser, user }) => {
         ? <Loader />
         : <Section>
           {error
-            ? <Heading style={{ color: 'red', fontSize: '24px', textAlign: 'center' }}>Липсва контролен план!</Heading>
+            ? <Heading style={{ color: 'red', fontSize: '18px', textAlign: 'center', fontWeight: '800' }}>{error}</Heading>
             : <>
               <HeadingBox>
                 <Icon src={fileIcon} />

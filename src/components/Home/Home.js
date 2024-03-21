@@ -20,10 +20,13 @@ const Home = ({ setPass, setUser }) => {
         navigate('/')
       })
       .catch(err => {
-        setError('red')
-        setTimeout(() => {
-          setError('')
-        }, 2000)
+        if(err.message =='Failed to fetch'){setError(true)}
+        else{
+          setError('red')
+          setTimeout(() => {
+            setError('')
+          }, 2000)
+        }
       });
   }
 
@@ -36,6 +39,7 @@ const Home = ({ setPass, setUser }) => {
         <Input type="search" name="id" required  style={{ borderColor: `${error}` }} autoComplete="off"></Input>
         <Button type="submit"><Image src={logon} /></Button>
       </Form>
+       {error === true && <Heading style={{color:'red',fontSize:'18px', fontWeight:'800'}}>Няма връзка със сървъра!</Heading>}
     </Container>
 
   )

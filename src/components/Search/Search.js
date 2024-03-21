@@ -1,6 +1,6 @@
 import { useNavigate,createSearchParams } from "react-router-dom";
 
-import { Button, Input, Form,Image } from "./elements";
+import { Button, Input, Form,Image,Heading } from "./elements";
 import searchIcon from "../../assets/Icons/icons8-search-50.png"
 
 
@@ -18,6 +18,7 @@ let Search = () => {
 
     return (
         <Form onSubmit={(e)=>onSubmit(e)}>
+            <Heading>ВЪВЕДИ ПОРЪЧКА</Heading>
             <Input type="search" name="query" required ></Input>           
             <Button type="submit"><Image src={searchIcon}/></Button>
         </Form>
