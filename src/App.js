@@ -21,7 +21,7 @@ function App() {
            <Search/>
           <Routes>
             <Route path='/Articles' element={<Articles />} />
-            <Route path='/Article/:year/:id' element={<Article  setPass={setPass} setUser={setUser} user={user}/>} />         
+            <Route path='/Article/:year/:id' element={<Article  setPass={setPass} setUser={setUser} user={user}/>} />      
           </Routes>
           </>
         : <Home setPass={setPass} setUser={setUser} />
